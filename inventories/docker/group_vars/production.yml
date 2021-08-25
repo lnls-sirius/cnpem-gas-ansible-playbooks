@@ -1,0 +1,4 @@
+gas_docker_stacks_root_directory: "/storage/services/repository/docker-stacks"
+
+gas_docker_BbB_base_template_dir: "{{ gas_docker_stacks_root_directory }}"
+gas_docker_DCCT_base_template_dir: "{{ gas_docker_stacks_root_directory }}"

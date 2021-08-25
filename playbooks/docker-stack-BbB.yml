@@ -1,0 +1,11 @@
+---
+- hosts: development
+  connection: local
+  become: false
+
+  pre_tasks:
+    - name: Include BbB deploy variables
+      include_vars: "vars/docker-stack-BbB.yml"
+
+  roles:
+    - role: cnpem-gas-role-docker-BbB

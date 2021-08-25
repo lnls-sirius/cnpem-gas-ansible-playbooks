@@ -1,6 +1,4 @@
 ---
-gas_docker_BbB_base_template_dir: "{{ gas_docker_stacks_root_directory }}"
-
 gas_docker_BbB_settings_defaults: &gas_docker_BbB_settings_defaults
   ARAMP_AREA_PREFIX: "SI-Glob:"
   ARAMP_AUTOSAVE_CONTAINER_DIR: "/opt/epics/startup/ioc/ar-amp-epics-ioc/iocBoot/iocARAmp/autosave"
