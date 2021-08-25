@@ -1,0 +1,11 @@
+---
+- hosts: development
+  connection: local
+  become: false
+
+  pre_tasks:
+    - name: Include DCCT deploy variables
+      include_vars: "vars/docker-stack-DCCT.yml"
+
+  roles:
+    - role: cnpem-gas-role-docker-DCCT

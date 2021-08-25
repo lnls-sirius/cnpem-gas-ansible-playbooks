@@ -1,0 +1,46 @@
+---
+gas_docker_DCCT_settings_defaults: &gas_docker_DCCT_settings_defaults
+  STACK_NAME: ""
+  DMM7510_AREA_PREFIX: ""
+  DMM7510_AUTOSAVE_CONTAINER_DIR: "/opt/epics/startup/ioc/dmm7510-epics-ioc/iocBoot/iocdmm7510/autosave"
+  DMM7510_AUTOSAVE_DIR: "{{ gas_docker_autosave_root_directory }}/IA-14RaDiag03-CO-IOCSrv"
+  DMM7510_CONTAINER_NAME: "dmm7510-epics-ioc"
+  DMM7510_DEVICE_PREFIX: "DI-DCCT:"
+  DMM7510_IMAGE_BASE: "dockerregistry.lnls-sirius.com.br/gas/dmm7510-epics-ioc"
+  DMM7510_IMAGE_TAG: "v3.2.2-rc1-base-3.15-debian-9.13"
+  DMM7510_INSTANCE: "DCCT-Example"
+  DMM7510_IP: ""
+  DMM7510_LOGGING_SERVER_HOST: "10.128.255.3"
+  DMM7510_LOGGING_SERVER_PORT: "7013"
+  DMM7510_PORT: "5025"
+  DMM7510_PLACEMENT:
+    CONSTRAINTS:
+      - node.hostname != CA-RaCtrl-CO-Srv-1
+      - node.hostname != LA-RaCtrl-CO-Srv-1
+      - node.hostname != TA-TiRack-CO-FWSrv-1
+  DMM7510_TELNET_PORT: ""
+
+gas_docker_DCCT_settings:
+  - <<: *gas_docker_DCCT_settings_defaults
+    DMM7510_AREA_PREFIX: "BO-35D:"
+    DMM7510_DEVICE_PREFIX: "DI-DCCT:"
+    DMM7510_INSTANCE: "DCCT1"
+    DMM7510_IP: "BO-35D-DI-DCCTDig"
+    DMM7510_PORT: "5025"
+    STACK_NAME: "DCCT-BO-35D"
+
+  - <<: *gas_docker_DCCT_settings_defaults
+    DMM7510_AREA_PREFIX: "SI-13C4:"
+    DMM7510_DEVICE_PREFIX: "DI-DCCT:"
+    DMM7510_INSTANCE: "DCCT2"
+    DMM7510_IP: "SI-13C4-DI-DCCTDig"
+    DMM7510_PORT: "5025"
+    STACK_NAME: "DCCT-SI-13C4"
+
+  - <<: *gas_docker_DCCT_settings_defaults
+    DMM7510_AREA_PREFIX: "SI-14C4:"
+    DMM7510_DEVICE_PREFIX: "DI-DCCT:"
+    DMM7510_INSTANCE: "DCCT3"
+    DMM7510_IP: "SI-14C4-DI-DCCTDig"
+    DMM7510_PORT: "5025"
+    STACK_NAME: "DCCT-SI-14C4"
