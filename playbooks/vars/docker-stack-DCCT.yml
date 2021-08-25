@@ -26,7 +26,6 @@ gas_docker_DCCT_settings:
     DMM7510_DEVICE_PREFIX: "DI-DCCT:"
     DMM7510_INSTANCE: "DCCT1"
     DMM7510_IP: "BO-35D-DI-DCCTDig"
-    DMM7510_PORT: "5025"
     STACK_NAME: "DCCT-BO-35D"
 
   - <<: *gas_docker_DCCT_settings_defaults
@@ -34,7 +33,6 @@ gas_docker_DCCT_settings:
     DMM7510_DEVICE_PREFIX: "DI-DCCT:"
     DMM7510_INSTANCE: "DCCT2"
     DMM7510_IP: "SI-13C4-DI-DCCTDig"
-    DMM7510_PORT: "5025"
     STACK_NAME: "DCCT-SI-13C4"
 
   - <<: *gas_docker_DCCT_settings_defaults
@@ -42,5 +40,4 @@ gas_docker_DCCT_settings:
     DMM7510_DEVICE_PREFIX: "DI-DCCT:"
     DMM7510_INSTANCE: "DCCT3"
     DMM7510_IP: "SI-14C4-DI-DCCTDig"
-    DMM7510_PORT: "5025"
     STACK_NAME: "DCCT-SI-14C4"
