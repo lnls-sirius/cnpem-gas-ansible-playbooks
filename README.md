@@ -14,7 +14,8 @@ The output file location is using the role default and can be overridden.
 
 Each role must be installed separatly inside [roles/](roles/)
 
-| role | url                                                      |
-| ---- | -------------------------------------------------------- |
-| BbB  | https://github.com/carneirofc/cnpem-gas-role-docker-BbB  |
-| DCCT | https://github.com/carneirofc/cnpem-gas-role-docker-DCCT |
+| role   | url                                                        |
+| ------ | ---------------------------------------------------------- |
+| BbB    | https://github.com/carneirofc/cnpem-gas-role-docker-BbB    |
+| DCCT   | https://github.com/carneirofc/cnpem-gas-role-docker-DCCT   |
+| timing | https://github.com/carneirofc/cnpem-gas-role-docker-timing |
