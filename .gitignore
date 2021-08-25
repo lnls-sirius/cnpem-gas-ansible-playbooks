@@ -1,0 +1,11 @@
+**/env
+*.log
+*.pyc
+*.retry
+*.swp
+*.vault
+.DS_Store
+.cache
+.molecule
+.vagrant
+__pycache__

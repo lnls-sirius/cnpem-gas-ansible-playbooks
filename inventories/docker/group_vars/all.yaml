@@ -1,0 +1,3 @@
+---
+gas_docker_stacks_root_directory: "/storage/services/repository/docker-stacks"
+gas_docker_autosave_root_directory: "/storage/common/autosave"
