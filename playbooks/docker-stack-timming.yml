@@ -1,0 +1,11 @@
+---
+- hosts: development
+  connection: local
+  become: false
+
+  pre_tasks:
+    - name: Include EVE, EVR and EVG deploy variables
+      include_vars: "vars/docker-stack-timing.yml"
+
+  roles:
+    - role: cnpem-gas-role-docker-timing
