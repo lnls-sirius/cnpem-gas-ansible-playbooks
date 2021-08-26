@@ -1,19 +1,14 @@
 ---
 gas_docker_timing_settings_defaults: &gas_docker_timing_settings_defaults
   SINAP_TIMING_AREA_PREFIX: ""
-  SINAP_TIMING_DEVICE_PREFIX: ""
-  SINAP_TIMING_INSTANCE: ""
-  SINAP_TIMING_IP: ""
-  SINAP_TIMING_PORT: ""
-  SINAP_TIMING_TELNET_PORT: ""
-  SINAP_TIMING_AREA_PREFIX: ""
   SINAP_TIMING_AUTOSAVE_CONTAINER_DIR: "/opt/epics/startup/ioc/sinap-timing-epics-ioc/iocBoot/ioctiming/autosave"
   SINAP_TIMING_AUTOSAVE_DIR: ""
   SINAP_TIMING_CONTAINER_NAME: "sinap-timing-epics-ioc"
   SINAP_TIMING_DEVICE_PREFIX: ""
   SINAP_TIMING_IMAGE_BASE: "dockerregistry.lnls-sirius.com.br/gas/sinap-timing-epics-ioc"
+  SINAP_TIMING_IMAGE_TAG: "v3.5.2-rc1-base-3.15-debian-9.13"
   SINAP_TIMING_IMAGE_TAG: ""
-  SINAP_TIMING_INSTANCE: "timing-Example"
+  SINAP_TIMING_INSTANCE: ""
   SINAP_TIMING_IP: ""
   SINAP_TIMING_LOGGING_SERVER_HOST: "10.128.255.3"
   SINAP_TIMING_LOGGING_SERVER_PORT: "7013"
@@ -27,18 +22,17 @@ gas_docker_timing_settings_defaults: &gas_docker_timing_settings_defaults
   STACK_NAME: ""
 
 gas_docker_timing_settings:
-  # EVG
+  # ------------------------- EVG -------------------------
   - <<: *gas_docker_timing_settings_defaults
     SINAP_TIMING_AREA_PREFIX: "AS-RaMO:"
     SINAP_TIMING_AUTOSAVE_DIR: "{{ gas_docker_autosave_root_directory }}/CA-RaTim-CO-IOCSrv"
     SINAP_TIMING_DEVICE_PREFIX: "TI-EVG:"
-    SINAP_TIMING_IMAGE_TAG: "v3.5.2-rc1-base-3.15-debian-9.13"
     SINAP_TIMING_INSTANCE: "EVG1"
     SINAP_TIMING_IP: "RA-MO-EVG"
     SINAP_TIMING_PORT: "50111"
     STACK_NAME: "EVG-AS-RaMO"
 
-  # EVR
+  # ------------------------- EVR -------------------------
   - <<: *gas_docker_timing_settings_defaults
     SINAP_TIMING_AREA_PREFIX: "IA-01RaInj05:"
     SINAP_TIMING_AUTOSAVE_DIR: "{{ gas_docker_autosave_root_directory }}/CA-RaTim-CO-IOCSrv"
@@ -46,7 +40,6 @@ gas_docker_timing_settings:
     SINAP_TIMING_INSTANCE: "EVR4"
     SINAP_TIMING_IP: "IA-01Inj05-EVR"
     SINAP_TIMING_PORT: "50117"
-    SINAP_TIMING_TAG: "v3.5.2-rc1-base-3.15-debian-9.13"
     STACK_NAME: "EVR-IA-01RaInj05"
 
   - <<: *gas_docker_timing_settings_defaults
@@ -56,7 +49,6 @@ gas_docker_timing_settings:
     SINAP_TIMING_INSTANCE: "EVR2"
     SINAP_TIMING_IP: "IA-20Diag01-EVR"
     SINAP_TIMING_PORT: "50113"
-    SINAP_TIMING_TAG: "v3.5.2-rc1-base-3.15-debian-9.13"
     STACK_NAME: "EVR-IA-20Diag01"
 
   - <<: *gas_docker_timing_settings_defaults
@@ -66,7 +58,6 @@ gas_docker_timing_settings:
     SINAP_TIMING_INSTANCE: "EVR2"
     SINAP_TIMING_IP: "LA-Ctrl-EVR"
     SINAP_TIMING_PORT: "50101"
-    SINAP_TIMING_TAG: "v3.5.2-rc1-base-3.15-debian-9.13"
     STACK_NAME: "EVR-LA-Ctrl"
 
   - <<: *gas_docker_timing_settings_defaults
@@ -76,7 +67,6 @@ gas_docker_timing_settings:
     SINAP_TIMING_INSTANCE: "EVR1"
     SINAP_TIMING_IP: "LA-RFRACK2-EVR"
     SINAP_TIMING_PORT: "50100"
-    SINAP_TIMING_TAG: "v3.5.2-rc1-base-3.15-debian-9.13"
     STACK_NAME: "EVR-LA-RFH01RACK2"
 
   - <<: *gas_docker_timing_settings_defaults
@@ -86,7 +76,6 @@ gas_docker_timing_settings:
     SINAP_TIMING_INSTANCE: "EVR3"
     SINAP_TIMING_IP: "PA-Ctrl-EVR-1"
     SINAP_TIMING_PORT: "50112"
-    SINAP_TIMING_TAG: "v3.5.2-rc1-base-3.15-debian-9.13"
     STACK_NAME: "EVR-PA-RaCtrl-1"
 
   - <<: *gas_docker_timing_settings_defaults
@@ -96,5 +85,61 @@ gas_docker_timing_settings:
     SINAP_TIMING_INSTANCE: "EVR5"
     SINAP_TIMING_IP: "PA-Ctrl-EVR-2"
     SINAP_TIMING_PORT: "50121"
-    SINAP_TIMING_TAG: "v3.5.2-rc1-base-3.15-debian-9.13"
     STACK_NAME: "EVR-PA-RaCtrl-2"
+
+  # ------------------------- EVE -------------------------
+  - <<: *gas_docker_timing_settings_defaults
+    STACK_NAME: "EVE-BA-09SA"
+    SINAP_TIMING_INSTANCE: "EVE4"
+    SINAP_TIMING_IP: "BA-09SA-EVE"
+    SINAP_TIMING_PORT: "50126"
+    SINAP_TIMING_AREA_PREFIX: "BA-09SA:"
+    SINAP_TIMING_DEVICE_PREFIX: "TI-EVE:"
+
+  - <<: *gas_docker_timing_settings_defaults
+    STACK_NAME: "EVE-IA-14Diag03"
+    SINAP_TIMING_INSTANCE: "EVE1"
+    SINAP_TIMING_IP: "IA-14Diag03-EVE"
+    SINAP_TIMING_PORT: "50124"
+    SINAP_TIMING_AREA_PREFIX: "IA-14RaDiag03:"
+    SINAP_TIMING_DEVICE_PREFIX: "TI-EVE:"
+
+  - <<: *gas_docker_timing_settings_defaults
+    STACK_NAME: "EVE-IA-16BbB"
+    SINAP_TIMING_INSTANCE: "EVE1"
+    SINAP_TIMING_IP: "IA-16BbB-EVE"
+    SINAP_TIMING_PORT: "50128"
+    SINAP_TIMING_AREA_PREFIX: "IA-16RaBbB:"
+    SINAP_TIMING_DEVICE_PREFIX: "TI-EVE:"
+
+  - <<: *gas_docker_timing_settings_defaults
+    STACK_NAME: "EVE-IA-18RaDiag04"
+    SINAP_TIMING_INSTANCE: "EVE1"
+    SINAP_TIMING_IP: "IA-18Diag04-EVE"
+    SINAP_TIMING_PORT: "50122"
+    SINAP_TIMING_AREA_PREFIX: "IA-18RaDiag04:"
+    SINAP_TIMING_DEVICE_PREFIX: "TI-EVE:"
+
+  - <<: *gas_docker_timing_settings_defaults
+    STACK_NAME: "EVE-LA-BIH01RACK2"
+    SINAP_TIMING_INSTANCE: "EVE1"
+    SINAP_TIMING_IP: "LA-BIRACK2-EVE"
+    SINAP_TIMING_PORT: "50123"
+    SINAP_TIMING_AREA_PREFIX: "LA-BIH01RACK2:"
+    SINAP_TIMING_DEVICE_PREFIX: "TI-EVE:"
+
+  - <<: *gas_docker_timing_settings_defaults
+    STACK_NAME: "EVE-RA-RaBO01"
+    SINAP_TIMING_INSTANCE: "EVE2"
+    SINAP_TIMING_IP: "RA-BO01-EVE"
+    SINAP_TIMING_PORT: "50131"
+    SINAP_TIMING_AREA_PREFIX: "RA-RaBO01:"
+    SINAP_TIMING_DEVICE_PREFIX: "TI-EVE:"
+
+  - <<: *gas_docker_timing_settings_defaults
+    STACK_NAME: "EVE-RA-RaSIA01"
+    SINAP_TIMING_INSTANCE: "EVE3"
+    SINAP_TIMING_IP: "RA-SIA01-EVE"
+    SINAP_TIMING_PORT: "50129"
+    SINAP_TIMING_AREA_PREFIX: "RA-RaSIA01:"
+    SINAP_TIMING_DEVICE_PREFIX: "TI-EVE:"
