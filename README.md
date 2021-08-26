@@ -16,6 +16,6 @@ Each role must be installed separatly inside [roles/](roles/)
 
 | role   | url                                                        |
 | ------ | ---------------------------------------------------------- |
-| BbB    | https://github.com/carneirofc/cnpem-gas-role-docker-BbB    |
-| DCCT   | https://github.com/carneirofc/cnpem-gas-role-docker-DCCT   |
-| timing | https://github.com/carneirofc/cnpem-gas-role-docker-timing |
+| BbB    | https://github.com/carneirofc/cnpem-gas-ansible-role-docker-BbB    |
+| DCCT   | https://github.com/carneirofc/cnpem-gas-ansible-role-docker-DCCT   |
+| timing | https://github.com/carneirofc/cnpem-gas-ansible-role-docker-timing |
