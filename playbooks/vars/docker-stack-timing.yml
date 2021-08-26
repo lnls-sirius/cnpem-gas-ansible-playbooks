@@ -7,7 +7,6 @@ gas_docker_timing_settings_defaults: &gas_docker_timing_settings_defaults
   SINAP_TIMING_DEVICE_PREFIX: ""
   SINAP_TIMING_IMAGE_BASE: "dockerregistry.lnls-sirius.com.br/gas/sinap-timing-epics-ioc"
   SINAP_TIMING_IMAGE_TAG: "v3.5.2-rc1-base-3.15-debian-9.13"
-  SINAP_TIMING_IMAGE_TAG: ""
   SINAP_TIMING_INSTANCE: ""
   SINAP_TIMING_IP: ""
   SINAP_TIMING_LOGGING_SERVER_HOST: "10.128.255.3"

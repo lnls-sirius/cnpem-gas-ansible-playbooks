@@ -22,6 +22,7 @@ gas_docker_BbB_settings_defaults: &gas_docker_BbB_settings_defaults
 gas_docker_BbB_settings:
   # AR Amplifier
   - <<: *gas_docker_BbB_settings_defaults
+    ARAMP_AREA_PREFIX: "SI-Glob:"
     ARAMP_DEVICE: "75250AM2"
     ARAMP_DEVICE_PREFIX: "DI-BbBAmpH:"
     ARAMP_INSTANCE: "ARAmp-SI-Glob-DI-BbBAmpH"
@@ -29,6 +30,7 @@ gas_docker_BbB_settings:
     STACK_NAME: "BbB-Glob-H"
 
   - <<: *gas_docker_BbB_settings_defaults
+    ARAMP_AREA_PREFIX: "SI-Glob:"
     ARAMP_DEVICE: "75A400"
     ARAMP_DEVICE_PREFIX: "DI-BbBAmpV:"
     ARAMP_INSTANCE: "ARAmp-SI-Glob-DI-BbBAmpV"
