@@ -145,11 +145,6 @@ gas_docker_scrn_settings:
 
   - <<: *gas_docker_scrn_settings_defaults
     STACK_NAME: "Scrn-BO-02U"
-    SCREEN_PLACEMENT:
-      CONSTRAINTS: # @todo: verificar
-        - node.hostname != TA-TiRack-CO-FWSrv-1
-        - node.hostname != CA-RaTim-CO-IOCSrv
-        - node.hostname != IA-14RaDiag03-CO-IOCSrv
     # Basler acA1300-75gm"
     BASLER_ACA1300_75GM_IMAGE_VERSION: "3.2.0-socat-rc1-base-3.15-debian-9"
     BASLER_ACA1300_75GM_INSTANCE: "Basler-BO-02U-DI-ScrnCam"
