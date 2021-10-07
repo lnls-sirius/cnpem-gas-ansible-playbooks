@@ -1,9 +1,9 @@
 # Docker stack configurations
 
-Usage:
+Use the command `ansible-playbook`
 
 ```command
-ansible-playbook --inventory inventories/docker playbooks/docker-stack-BbB.yml
+ansible-playbook --inventory inventories/docker playbooks/<playbook_name>.yml
 ```
 
 IOC settings are located at modify the contents of [playbooks/vars](playbooks/vars).
