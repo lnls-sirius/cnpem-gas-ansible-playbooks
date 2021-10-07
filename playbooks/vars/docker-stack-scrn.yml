@@ -10,15 +10,16 @@ gas_docker_scrn_settings_defaults:
   BASLER_ACA1300_75GM_IMAGE_VERSION: "3.2.0-socat-rc1-base-3.15-debian-9"
   BASLER_ACA1300_75GM_PLACEMENT:
     CONSTRAINTS:
-      - node.hostname != CA-RaCtrl-CO-Srv-1
       - node.hostname != CA-RaTim-CO-IOCSrv
       - node.hostname != IA-14RaDiag03-CO-IOCSrv
       - node.hostname != IA-16RaBbB-CO-IOCSrv
       - node.hostname != IA-18RaDiag04-CO-IOCSrv
       - node.hostname != IA-20RaDiag01-CO-IOCSrv-1
+      - node.hostname != IA-20RaDiag01-CO-IOCSrv-2
       - node.hostname != IA-20RaDiag02-CO-IOCSrv-1
-      - node.hostname != LA-RaCtrl-CO-Srv-1
+      - node.hostname != IA-20RaDiag02-CO-IOCSrv-2
       - node.hostname != TA-TiRack-CO-FWSrv-1
+      - node.hostname != lnlsfac-srv2
   BASLER_ACA1300_75GM_AUTOSAVE_CONTAINER_DIR: "/opt/epics/startup/ioc/basler-acA1300-75gm-epics-ioc/iocBoot/iocBasleracA130075gm/autosave"
   # Galil DMC30017
   DMC30017_TELNET_PORT: ""
@@ -35,12 +36,6 @@ gas_docker_scrn_settings_defaults:
   SCREEN_PLACEMENT:
     CONSTRAINTS:
       - node.hostname != CA-RaCtrl-CO-Srv-1
-      - node.hostname != CA-RaTim-CO-IOCSrv
-      - node.hostname != IA-14RaDiag03-CO-IOCSrv
-      - node.hostname != IA-16RaBbB-CO-IOCSrv
-      - node.hostname != IA-18RaDiag04-CO-IOCSrv
-      - node.hostname != IA-20RaDiag01-CO-IOCSrv-1
-      - node.hostname != IA-20RaDiag02-CO-IOCSrv-1
       - node.hostname != LA-RaCtrl-CO-Srv-1
       - node.hostname != TA-TiRack-CO-FWSrv-1
   SCREEN_AUTOSAVE_CONTAINER_DIR: "/opt/epics/startup/ioc/screen-epics-ioc/iocBoot/iocScreen/autosave"
@@ -150,6 +145,11 @@ gas_docker_scrn_settings:
 
   - <<: *gas_docker_scrn_settings_defaults
     STACK_NAME: "Scrn-BO-02U"
+    SCREEN_PLACEMENT:
+      CONSTRAINTS: # @todo: verificar
+        - node.hostname != TA-TiRack-CO-FWSrv-1
+        - node.hostname != CA-RaTim-CO-IOCSrv
+        - node.hostname != IA-14RaDiag03-CO-IOCSrv
     # Basler acA1300-75gm"
     BASLER_ACA1300_75GM_IMAGE_VERSION: "3.2.0-socat-rc1-base-3.15-debian-9"
     BASLER_ACA1300_75GM_INSTANCE: "Basler-BO-02U-DI-ScrnCam"
@@ -601,7 +601,7 @@ gas_docker_scrn_settings:
     BASLER_ACA1300_75GM_DEVICE_PREFIX: "DI-ScrnCam:"
     BASLER_ACA1300_75GM_SN: "22295719"
     BASLER_ACA1300_75GM_HL_PREFIX: "TS-01:DI-Scrn:"
-    BASLER_ACA1300_75GM_HTTP_PORT: "8081"
+    BASLER_ACA1300_75GM_HTTP_PORT: "8091"
     BASLER_ACA1300_75GM_FFMPEG_PORT: "TS-01-Scrn"
     # Galil DMC30017"
     DMC30017_IMAGE_VERSION: "v1.2.6-rc1-LNLS1-base-3.15-debian-9"
@@ -658,7 +658,7 @@ gas_docker_scrn_settings:
     BASLER_ACA1300_75GM_DEVICE_PREFIX: "DI-ScrnCam:"
     BASLER_ACA1300_75GM_SN: "22309750"
     BASLER_ACA1300_75GM_HL_PREFIX: "TS-02:DI-Scrn:"
-    BASLER_ACA1300_75GM_HTTP_PORT: "8082"
+    BASLER_ACA1300_75GM_HTTP_PORT: "8092"
     BASLER_ACA1300_75GM_FFMPEG_PORT: "TS-02-Scrn"
     # Galil DMC30017"
     DMC30017_IMAGE_VERSION: "v1.2.6-rc1-LNLS1-base-3.15-debian-9"
@@ -715,7 +715,7 @@ gas_docker_scrn_settings:
     BASLER_ACA1300_75GM_DEVICE_PREFIX: "DI-ScrnCam:"
     BASLER_ACA1300_75GM_SN: "22309691"
     BASLER_ACA1300_75GM_HL_PREFIX: "TS-03:DI-Scrn:"
-    BASLER_ACA1300_75GM_HTTP_PORT: "8083"
+    BASLER_ACA1300_75GM_HTTP_PORT: "8093"
     BASLER_ACA1300_75GM_FFMPEG_PORT: "TS-03-Scrn"
     # Galil DMC30017"
     DMC30017_IMAGE_VERSION: "v1.2.6-rc1-LNLS1-base-3.15-debian-9"
@@ -774,7 +774,7 @@ gas_docker_scrn_settings:
     BASLER_ACA1300_75GM_DEVICE_PREFIX: "DI-ScrnCam-1:"
     BASLER_ACA1300_75GM_SN: "22295715"
     BASLER_ACA1300_75GM_HL_PREFIX: "TS-04:DI-Scrn-1:"
-    BASLER_ACA1300_75GM_HTTP_PORT: "8084"
+    BASLER_ACA1300_75GM_HTTP_PORT: "8094"
     BASLER_ACA1300_75GM_FFMPEG_PORT: "TS-04-Scrn-1"
     # Galil DMC30017"
     DMC30017_IMAGE_VERSION: "v1.2.6-rc1-LNLS1-base-3.15-debian-9"
@@ -834,7 +834,7 @@ gas_docker_scrn_settings:
     BASLER_ACA1300_75GM_DEVICE_PREFIX: "DI-ScrnCam-2:"
     BASLER_ACA1300_75GM_SN: "22309692"
     BASLER_ACA1300_75GM_HL_PREFIX: "TS-04:DI-Scrn-2:"
-    BASLER_ACA1300_75GM_HTTP_PORT: "8087"
+    BASLER_ACA1300_75GM_HTTP_PORT: "8095"
     BASLER_ACA1300_75GM_FFMPEG_PORT: "TS-04-Scrn-2"
     # Galil DMC30017"
     DMC30017_IMAGE_VERSION: "v1.2.6-rc1-LNLS1-base-3.15-debian-9"
@@ -895,7 +895,7 @@ gas_docker_scrn_settings:
     BASLER_ACA1300_75GM_DEVICE_PREFIX: "DI-ScrnCam-3:"
     BASLER_ACA1300_75GM_SN: "22309754"
     BASLER_ACA1300_75GM_HL_PREFIX: "TS-04:DI-Scrn-3:"
-    BASLER_ACA1300_75GM_HTTP_PORT: "8086"
+    BASLER_ACA1300_75GM_HTTP_PORT: "8096"
     BASLER_ACA1300_75GM_FFMPEG_PORT: "TS-04-Scrn-3"
     # Galil DMC30017"
     DMC30017_IMAGE_VERSION: "v1.2.6-rc1-LNLS1-base-3.15-debian-9"
