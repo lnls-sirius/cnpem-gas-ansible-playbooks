@@ -1,0 +1,11 @@
+---
+- hosts: development
+  connection: local
+  become: false
+
+  pre_tasks:
+    - name: Include Scrn deploy variables
+      include_vars: "vars/docker-stack-scrn.yml"
+
+  roles:
+    - role: cnpem-gas-ansible-role-docker-scrn
