@@ -535,7 +535,7 @@ gas_docker_scrn_settings:
     SCREEN_AREA_PREFIX: "TB-03:"
     SCREEN_DEVICE_PREFIX: "DI-Scrn:"
     SCREEN_MTR_CTRL_PREFIX: "TB-03:DI-ScrnCtrl:"
-    SCREEN_CAM_PREFIX: "TB-03:DI-SCRNCAM:"
+    SCREEN_CAM_PREFIX: "TB-03:DI-ScrnCam:"
 
   - <<: *gas_docker_scrn_settings_defaults
     STACK_NAME: "Scrn-TB-04"
