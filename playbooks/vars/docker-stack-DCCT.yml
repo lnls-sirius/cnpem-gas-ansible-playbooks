@@ -2,7 +2,7 @@
 gas_docker_DCCT_settings_defaults: &gas_docker_DCCT_settings_defaults
   DMM7510_AREA_PREFIX: ""
   DMM7510_AUTOSAVE_CONTAINER_DIR: "/opt/epics/startup/ioc/dmm7510-epics-ioc/iocBoot/iocdmm7510/autosave"
-  DMM7510_AUTOSAVE_DIR: "{{ gas_docker_autosave_root_directory }}/IA-14RaDiag03-CO-IOCSrv"
+  DMM7510_AUTOSAVE_DIR: "{{ gas_docker_autosave_root_directory }}/DCCT"
   DMM7510_CONTAINER_NAME: "dmm7510-epics-ioc"
   DMM7510_DEVICE_PREFIX: ""
   DMM7510_IMAGE_BASE: "dockerregistry.lnls-sirius.com.br/gas/dmm7510-epics-ioc"

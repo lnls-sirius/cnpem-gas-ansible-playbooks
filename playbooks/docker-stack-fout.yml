@@ -1,0 +1,11 @@
+---
+- hosts: production
+  connection: local
+  become: false
+
+  pre_tasks:
+    - name: Include Fout deploy variables
+      include_vars: "vars/docker-stack-fout.yml"
+
+  roles:
+    - role: cnpem-gas-ansible-role-docker-fout
