@@ -1,6 +1,6 @@
 # Docker stack configurations
 
-Use the command `ansible-playbook`
+Use the command `ansible-playbook` according to the following example:
 
 ```command
 ansible-playbook --inventory inventories/docker playbooks/<playbook_name>.yml
@@ -10,21 +10,25 @@ IOC settings are located at modify the contents of [playbooks/vars](playbooks/va
 
 The output file location is using the role default and can be overridden.
 
-Install roles:
+Install roles cloning the corresponding role into `roles/` subdirectory:
+
 ```bash
-set -x
-roles="cnpem-gas-ansible-role-docker-BbB  cnpem-gas-ansible-role-docker-DCCT  cnpem-gas-ansible-role-docker-timing"
-for role in ${roles}; do
-    ln --relative --symbolic ../${role} roles/${role}
-done
+mkdir ./roles
+cd ./roles
+git clone https://github.com/carneirofc/cnpem-gas-ansible-role-docker-BbB
+git clone https://github.com/carneirofc/cnpem-gas-ansible-role-docker-DCCT
+git clone https://github.com/carneirofc/cnpem-gas-ansible-role-docker-fout
+git clone https://github.com/carneirofc/cnpem-gas-ansible-role-docker-scrn
+git clone https://github.com/carneirofc/cnpem-gas-ansible-role-docker-timing
+cd -
 ```
 
-## Dependencies
+## Roles
 
-Each role must be installed separatly inside [roles/](roles/)
-
-| role   | url                                                        |
-| ------ | ---------------------------------------------------------- |
-| BbB    | https://github.com/carneirofc/cnpem-gas-ansible-role-docker-BbB    |
-| DCCT   | https://github.com/carneirofc/cnpem-gas-ansible-role-docker-DCCT   |
-| timing | https://github.com/carneirofc/cnpem-gas-ansible-role-docker-timing |
+| URL                                                                |
+| ------------------------------------------------------------------ |
+| https://github.com/carneirofc/cnpem-gas-ansible-role-docker-BbB    |
+| https://github.com/carneirofc/cnpem-gas-ansible-role-docker-DCCT   |
+| https://github.com/carneirofc/cnpem-gas-ansible-role-docker-fout   |
+| https://github.com/carneirofc/cnpem-gas-ansible-role-docker-scrn   |
+| https://github.com/carneirofc/cnpem-gas-ansible-role-docker-timing |
