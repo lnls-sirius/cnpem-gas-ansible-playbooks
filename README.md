@@ -6,6 +6,19 @@ Use the command `ansible-playbook` according to the following example:
 ansible-playbook --inventory inventories/docker playbooks/<playbook_name>.yml
 ```
 
+We are using submodules Yay!!
+
+```
+#  2.13 of Git and later
+git clone --recurse-submodules -j$(nproc) https://github.com/carneirofc/cnpem-gas-ansible-playbooks
+
+# version 1.9 of Git up until version 2.12 (-j flag only available in version 2.8+):
+git clone --recursive -j8 https://github.com/carneirofc/cnpem-gas-ansible-playbooks
+
+# already cloned repos, or older Git versions, use:
+git submodule update --init --recursive
+```
+
 IOC settings are located at modify the contents of [playbooks/vars](playbooks/vars).
 
 The output file location is using the role default and can be overridden.
