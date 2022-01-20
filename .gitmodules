@@ -7,3 +7,18 @@
 [submodule "roles/ansible-role-glusterfs"]
 	path = roles/ansible-role-glusterfs
 	url = https://github.com/carneirofc/ansible-role-glusterfs
+[submodule "roles/cnpem-gas-ansible-role-docker-BbB"]
+	path = roles/cnpem-gas-ansible-role-docker-BbB
+	url = https://github.com/carneirofc/cnpem-gas-ansible-role-docker-BbB
+[submodule "roles/cnpem-gas-ansible-role-docker-DCCT"]
+	path = roles/cnpem-gas-ansible-role-docker-DCCT
+	url = https://github.com/carneirofc/cnpem-gas-ansible-role-docker-DCCT
+[submodule "roles/cnpem-gas-ansible-role-docker-fout"]
+	path = roles/cnpem-gas-ansible-role-docker-fout
+	url = https://github.com/carneirofc/cnpem-gas-ansible-role-docker-fout
+[submodule "roles/cnpem-gas-ansible-role-docker-scrn"]
+	path = roles/cnpem-gas-ansible-role-docker-scrn
+	url = https://github.com/carneirofc/cnpem-gas-ansible-role-docker-scrn
+[submodule "roles/cnpem-gas-ansible-role-docker-timing"]
+	path = roles/cnpem-gas-ansible-role-docker-timing
+	url = https://github.com/carneirofc/cnpem-gas-ansible-role-docker-timing
