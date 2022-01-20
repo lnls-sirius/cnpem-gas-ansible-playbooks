@@ -1,0 +1,9 @@
+[submodule "roles/ansible-role-docker"]
+	path = roles/ansible-role-docker
+	url = https://github.com/carneirofc/ansible-role-docker
+[submodule "roles/ansible-role-ntp"]
+	path = roles/ansible-role-ntp
+	url = https://github.com/carneirofc/ansible-role-ntp
+[submodule "roles/ansible-role-glusterfs"]
+	path = roles/ansible-role-glusterfs
+	url = https://github.com/carneirofc/ansible-role-glusterfs

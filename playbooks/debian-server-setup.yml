@@ -1,0 +1,58 @@
+---
+- connection: local
+  become: false
+  hosts: localhost
+
+  vars:
+    setup_zsh: true
+    setup_fonts: true
+    setup_nvim: true
+    setup_alacritty: false
+
+    apt_packages:
+      # c/c++ lint
+      - clangd
+
+      # node utilities
+      - nodejs
+
+      # python
+      - python3
+      - python3-pip
+      
+      # generate certs, utilities
+      - openssl
+
+    pip_packages:
+      # nvim
+      - mdformat
+      - mdformat-gfm
+      - neovim
+
+      # nvim lsp
+      - python-lsp-server
+      - pyls-flake8
+      - pylsp-mypy
+      - pyls-isort
+      - python-lsp-black
+      - pylsp-rope
+      - rope
+
+      # python dev
+      - black
+      - mypy
+      - flake8
+
+  tasks:
+    - name: Install packages
+      apt:
+        state: latest
+        pkg:
+          - openssh-server
+          - openssh-client
+    
+
+  roles:
+    - ansible-role-ntp
+    - ansible-role-docker
+    - ansible-role-glusterfs
