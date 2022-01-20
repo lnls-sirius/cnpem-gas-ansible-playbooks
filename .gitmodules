@@ -22,3 +22,6 @@
 [submodule "roles/cnpem-gas-ansible-role-docker-timing"]
 	path = roles/cnpem-gas-ansible-role-docker-timing
 	url = https://github.com/carneirofc/cnpem-gas-ansible-role-docker-timing
+[submodule "roles/ansible-role-conda"]
+	path = roles/ansible-role-conda
+	url = https://github.com/carneirofc/ansible-role-conda
