@@ -1,7 +1,7 @@
 ---
-- connection: local
-  become: true
-  hosts: localhost
+# - connection: local
+- become: true
+  hosts: all #localhost
 
   vars:
     setup_zsh: true
@@ -13,20 +13,21 @@
       # c/c++ lint
       - clangd
 
-      # node utilities
+      # Node utilities
       - nodejs
       - npm
 
-      # python
+      # Python
       - python3
       - python3-pip
 
       # generate certs, utilities
       - openssl
 
-      # fuse
+      # Filesystem Packages
       - fuse
       - libfuse2
+      - autofs
 
     pip_packages:
       # nvim
@@ -103,12 +104,24 @@
 
 
     # -----------------------------------------
-    # Glusterfs & Docker
+    # Docker
     - include_role:
         name: ansible-role-docker
       vars:
         docker_restart_handler_state: started
         docker_package: "docker-ce=5:20.10.12~3-0~debian-bullseye"
 
-    - include_role:
-        name: ansible-role-glusterfs
+    # -----------------------------------------
+    # Glusterfs
+    - name: Glusterfs packages
+      apt:
+        pkg:
+          - glusterfs-server
+          - glusterfs-client
+          - glusterfs-common
+
+    - name: Start Glusterfs service
+      service:
+        name: glusterd
+        state: started
+        enabled: yes
