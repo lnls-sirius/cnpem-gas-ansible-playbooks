@@ -45,3 +45,9 @@ cd -
 | https://github.com/carneirofc/cnpem-gas-ansible-role-docker-fout   |
 | https://github.com/carneirofc/cnpem-gas-ansible-role-docker-scrn   |
 | https://github.com/carneirofc/cnpem-gas-ansible-role-docker-timing |
+
+## Testing
+
+```command
+ansible-playbook -v -i Vagrant/hosts -u vagrant playbooks/debian-server-setup.yml
+```
