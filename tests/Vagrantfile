@@ -1,0 +1,16 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+#
+Vagrant.configure("2") do |config|
+  config.vm.box = "debian/bullseye64"
+    config.vm.synced_folder "./../", "/repo", id: "vagrant-root", type: "sshfs"
+    config.vm.hostname = "debian-bullseye"
+    config.vm.network :private_network, ip: "192.168.33.10"
+    config.vm.provider :virtualbox do |vb|
+       vb.name = "debian-bullseye"
+       vb.memory = 4096
+       vb.cpus = 5
+       vb.customize ["modifyvm", :id, "--natdnshostresolver1","on"]
+       vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+    end
+end
