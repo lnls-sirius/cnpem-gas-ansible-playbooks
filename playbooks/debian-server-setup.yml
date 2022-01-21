@@ -29,6 +29,8 @@
       - libfuse2
       - autofs
 
+      - locales
+
     pip_packages:
       # nvim
       - mdformat
@@ -54,6 +56,8 @@
     conda_group_name: conda
     conda_group_gid: 1100
 
+    config_system_locale: 'pt_BR.UTF-8'
+    config_system_language: 'en_US.UTF-8'
 
   tasks:
     # -----------------------------------------
@@ -73,6 +77,15 @@
     # NTP
     - include_role:
         name: ansible-role-ntp
+
+    - name: Set timezone
+      timezone:
+        name: America/Sao_Paulo
+
+    - name: Ensure a locale exists
+      locale_gen:
+        name: "{{ config_system_locale }}"
+        state: present
 
     # -----------------------------------------
     # Neovim
