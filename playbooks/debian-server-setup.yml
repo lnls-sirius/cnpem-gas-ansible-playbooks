@@ -1,6 +1,6 @@
 ---
 - connection: local
-  become: false
+  become: true
   hosts: localhost
 
   vars:
@@ -15,18 +15,18 @@
 
       # node utilities
       - nodejs
+      - npm
 
       # python
       - python3
       - python3-pip
-      
+
       # generate certs, utilities
       - openssl
 
       # fuse
       - fuse
       - libfuse2
-      - libfuse2-udeb
 
     pip_packages:
       # nvim
@@ -47,12 +47,16 @@
       - black
       - mypy
       - flake8
+      - pre-commit
 
-    conda_group:
-      - name: conda # Conda group
-        gid: 1100
+    # Conda gid and name for multi user /opt install
+    conda_group_name: conda
+    conda_group_gid: 1100
+
 
   tasks:
+    # -----------------------------------------
+    # Basic packages
     - name: Install general usage
       apt:
         state: latest
@@ -64,28 +68,47 @@
         name: "{{ pip_packages }}"
         state: latest
 
-    - name: Create a conda group for multi user install
-      ansible.builtin.group:
-        name: "{{ conda_group.name }}"
-        gid: "{{ conda_group.gid }}"
-        state: presentA
+    # -----------------------------------------
+    # NTP
+    - include_role:
+        name: ansible-role-ntp
 
+    # -----------------------------------------
+    # Neovim
     - name: Install neovim
-      dest: /usr/local/bin/nvim
-      force: yes
-      url: https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
-      checksum: sha256:f4d32d032ffe00d1e7becaec2473115e672fbc343531be27670a11785fe7dc9c
-      mode: u=rx,g=rx,o=rx
+      get_url:
+        dest: /usr/local/bin/nvim
+        force: yes
+        url: https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+        checksum: sha256:f4d32d032ffe00d1e7becaec2473115e672fbc343531be27670a11785fe7dc9c
+        mode: u=rx,g=rx,o=rx
+
+    # -----------------------------------------
+    # Conda
+    - include_role:
+        name: ansible-role-conda
+
+    - name: Create a conda group for multi user install
+      group:
+        name: "{{ conda_group_name }}"
+        gid: "{{ conda_group_gid }}"
+        state: present
 
     - name: Change conda permissions
       file:
         path: /opt/conda
         owner: root
-        group: "{{ conda_group.name }}"
+        group: "{{ conda_group_name }}"
         mode: '0775'
 
-  roles:
-    - ansible-role-ntp
-    - ansible-role-docker
-    - ansible-role-glusterfs
-    - ansible-role-conda
+
+    # -----------------------------------------
+    # Glusterfs & Docker
+    - include_role:
+        name: ansible-role-docker
+      vars:
+        docker_restart_handler_state: started
+        docker_package: "docker-ce=5:20.10.12~3-0~debian-bullseye"
+
+    - include_role:
+        name: ansible-role-glusterfs
