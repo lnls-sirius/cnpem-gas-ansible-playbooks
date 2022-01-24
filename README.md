@@ -47,7 +47,15 @@ cd -
 | https://github.com/carneirofc/cnpem-gas-ansible-role-docker-timing |
 
 ## Testing
+One can test using Vagrant or molecule. For a more interactive approach vagrant is a better choice.
 
 ```command
-ansible-playbook -v -i Vagrant/hosts -u vagrant playbooks/debian-server-setup.yml
+# general example
+ansible-playbook -v -i Vagrant/hosts -u vagrant <playbook>
 ```
+
+### debian 11 server setup playbook
+```
+ansible-playbook --limit 'vagrant'  -vvv -i inventories/servers -u vagrant playbooks/debian-server-setup.yml
+```
+
