@@ -1,0 +1,30 @@
+# -----------------------------------------
+# Neovim
+- name: Install neovim
+  get_url:
+    dest: /usr/local/bin/nvim
+    force: yes
+    url: "{{ nvim_url | default('https://github.com/neovim/neovim/releases/download/v0.6.1/nvim.appimage') }}"
+    checksum: "{{ nvim_checksum | default('sha256:ef9056e05ef6a4c1d0cdb8b21f79261703122c0fd31f23f782158d326fdadbf5') }}"
+    mode: u=rx,g=rx,o=rx
+
+- name: Neovim python module
+  pip:
+    executable: pip
+    name: neovim
+
+- name: Neovim python3 module
+  pip:
+    executable: pip3
+    name: neovim
+
+- name: Neovim plugin dependencies
+  pip:
+    executable: pip3
+    name: "{{ nvim_plugins_pip }}"
+
+- name: Neovim plugins dependencies (apt)
+  apt:
+    arg: "{{ nvim_apt_packages }}"
+  when: ansible_os_family == 'Debian'
+
