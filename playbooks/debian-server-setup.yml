@@ -7,7 +7,6 @@
     # Basic setup
     - name: Install general usage
       apt:
-        state: latest
         pkg: "{{ apt_packages }}"
       when: ansible_os_family == 'Debian'
 
@@ -20,7 +19,6 @@
       pip:
         executable: /usr/bin/pip3
         name: "{{ pip_packages }}"
-        state: latest
 
     # -----------------------------------------
     # NTP

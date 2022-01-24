@@ -1,9 +1,10 @@
 ---
 skip_list:
-  - '602'
-  - no-handler
-  - role-name
-  - unnamed-task
+  - '602' # [E602] Don't compare to empty string, https://github.com/ansible-community/ansible-lint/issues/457
+  - no-handler # Tasks that run when changed should likely be handlers
+  - role-name # Role name {0} does not match ^[a-z][a-z0-9_]+$ pattern
+  - unnamed-task # All tasks should be named
+  - var-naming  # All variables should be named using only lowercase and underscores
 
 warn_list:
-  - internal-error
+  - internal-error # Unexpected internal error

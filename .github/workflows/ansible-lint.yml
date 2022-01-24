@@ -4,6 +4,8 @@ on: [push, pull_request]
 
 jobs:
   build:
+    env:
+      ANSIBLE_DUPLICATE_YAML_DICT_KEY: ignore
 
     runs-on: ubuntu-latest
 
