@@ -4,5 +4,8 @@ debian-bullseye ansible_host=192.168.33.10
 [vagrant:vars]
 ansible_ssh_private_key_file=Vagrant/.vagrant/machines/default/libvirt/private_key
 
+[cluster]
+gas-ibm-server.abtlus.org.br
+
 [all:vars]
 ansible_python_interpreter=/usr/bin/python3

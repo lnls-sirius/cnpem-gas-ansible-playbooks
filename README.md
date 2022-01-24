@@ -5,6 +5,24 @@ Use the command `ansible-playbook` according to the following example:
 ```command
 ansible-playbook --inventory inventories/docker playbooks/<playbook_name>.yml
 ```
+in order to check connections
+
+````command
+ansible cluster \
+    --module-name 'ping' \
+    --inventory inventories/servers \
+    --ask-pass \
+    --ask-become-pass \
+    --user <remote-user>
+
+# or
+ansible cluster \
+    -m 'ping' \
+    -i inventories/servers \
+    -k \
+    -K \
+    -u <remote-user>
+```
 
 We are using submodules Yay!!
 

@@ -25,6 +25,6 @@
 
 - name: Neovim plugins dependencies (apt)
   apt:
-    arg: "{{ nvim_apt_packages }}"
+    pkg: "{{ nvim_apt_packages }}"
   when: ansible_os_family == 'Debian'
 

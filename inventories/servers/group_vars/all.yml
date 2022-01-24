@@ -17,7 +17,11 @@ apt_packages:
   - fuse
   - autofs
 
+  # locales
   - locales
+
+  # utilities
+  - tree
 
 # General usage Python packages
 pip_packages:
