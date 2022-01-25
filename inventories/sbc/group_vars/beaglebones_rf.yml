@@ -1,0 +1,4 @@
+services_disabled:
+  - redis-server.service
+  - bbb-daemon.service
+  - bbb-function.service

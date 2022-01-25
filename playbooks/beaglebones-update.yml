@@ -1,6 +1,7 @@
 ---
+- become: true
+  hosts: all
   tasks:
-
     # -----------------------------------------
     # Fix ssh trouble makers
     - name: Remove ssh banner
@@ -19,5 +20,5 @@
     # -----------------------------------------
     # NTP
     - include_role:
-      name: ansible-role-ntp
+        name: ansible-role-ntp
 
