@@ -5,3 +5,4 @@ bbb-llrflinps01         ansible_host=10.128.162.159
 bbb-ssa-tobo            ansible_host=10.128.162.160
 bbb-rabo--llrfpldrv01   ansible_host=10.128.162.164
 bbb-rabo--llrfcalsys    ansible_host=10.128.162.174
+bbb-si-calsys           ansible_host=10.128.163.165
