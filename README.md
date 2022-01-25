@@ -78,4 +78,3 @@ ansible-playbook -v -i Vagrant/hosts -u vagrant <playbook>
 ansible-playbook --limit 'vagrant'  -vvv -i inventories/servers -u vagrant playbooks/debian-server-setup.yml
 ```
 one can use the `--limit` parameter to include/exclude host groups eg: `!vagrant` excludes vagrant hosts. `:` is the host group separator for the limit argument.
-````
