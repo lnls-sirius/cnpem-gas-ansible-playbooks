@@ -11,6 +11,12 @@
         replace: '#Banner none'
       register: banner_removed
 
+    - name: Remove bell from inputrc
+      replace:
+        path: /etc/inputrc
+        regexp: '^# set bell-style none$'
+        replace: 'set bell-style none'
+
     - name: Restart sshd applying sshd_config changes
       service:
         state: restarted
