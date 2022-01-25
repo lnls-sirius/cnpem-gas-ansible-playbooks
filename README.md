@@ -8,14 +8,13 @@ ansible-playbook --inventory inventories/docker playbooks/<playbook_name>.yml
 
 in order to check connections
 
-````command
+```command
 ansible cluster \
     --module-name 'ping' \
     --inventory inventories/servers \
     --ask-pass \
     --ask-become-pass \
     --user <remote-user>
-
 # or
 ansible cluster \
     -m 'ping' \
@@ -38,7 +37,7 @@ ansible all \
 
 We are using submodules Yay!!
 
-```
+```command
 #  2.13 of Git and later
 git clone --recurse-submodules -j$(nproc) https://github.com/carneirofc/cnpem-gas-ansible-playbooks
 
@@ -53,18 +52,7 @@ IOC settings are located at modify the contents of [playbooks/vars](playbooks/va
 
 The output file location is using the role default and can be overridden.
 
-Install roles cloning the corresponding role into `roles/` subdirectory:
-
-```bash
-mkdir ./roles
-cd ./roles
-git clone https://github.com/carneirofc/cnpem-gas-ansible-role-docker-BbB
-git clone https://github.com/carneirofc/cnpem-gas-ansible-role-docker-DCCT
-git clone https://github.com/carneirofc/cnpem-gas-ansible-role-docker-fout
-git clone https://github.com/carneirofc/cnpem-gas-ansible-role-docker-scrn
-git clone https://github.com/carneirofc/cnpem-gas-ansible-role-docker-timing
-cd -
-```
+Install roles cloning the corresponding role into `roles/` subdirectory.
 
 ## Roles
 
@@ -75,6 +63,7 @@ cd -
 | https://github.com/carneirofc/cnpem-gas-ansible-role-docker-fout   |
 | https://github.com/carneirofc/cnpem-gas-ansible-role-docker-scrn   |
 | https://github.com/carneirofc/cnpem-gas-ansible-role-docker-timing |
+...
 
 ## Testing
 One can test using Vagrant or molecule. For a more interactive approach vagrant is a better choice.
