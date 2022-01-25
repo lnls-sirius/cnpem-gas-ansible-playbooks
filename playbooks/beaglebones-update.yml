@@ -3,7 +3,7 @@
   hosts: all
   tasks:
     # -----------------------------------------
-    # Fix ssh trouble makers
+    # Fix trouble makers
     - name: Remove ssh banner
       replace:
         path: /etc/ssh/sshd_config
@@ -22,6 +22,14 @@
         state: restarted
         name: sshd
       when: banner_removed.changed
+
+    # -----------------------------------------
+    # Basic packages
+    - name: Basic packages
+      apt:
+        pkg: "{{ apt_packages }}"
+      when: ansible_os_family == 'Debian'
+
 
     # -----------------------------------------
     # NTP

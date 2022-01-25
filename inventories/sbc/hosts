@@ -1,8 +1,15 @@
 [beaglebones_rf]
-bbb-rf-ssaswps01        ansible_host=10.128.162.157
-bbb-llrfswps01          ansible_host=10.128.162.158
+# bbb-rabo--llrfcalsys  ansible_host=10.128.162.163
+bbb-llrfcavpldrv02      ansible_host=10.128.163.166
 bbb-llrflinps01         ansible_host=10.128.162.159
-bbb-ssa-tobo            ansible_host=10.128.162.160
-bbb-rabo--llrfpldrv01   ansible_host=10.128.162.164
+bbb-llrflinps02         ansible_host=10.128.163.169
+bbb-llrfswps01          ansible_host=10.128.162.158
+bbb-llrfswps02          ansible_host=10.128.163.168
 bbb-rabo--llrfcalsys    ansible_host=10.128.162.174
+bbb-rabo--llrfpldrv01   ansible_host=10.128.162.164
+bbb-rf-ssaswps01        ansible_host=10.128.162.157
 bbb-si-calsys           ansible_host=10.128.163.165
+bbb-ssa-tobo            ansible_host=10.128.162.160
+bbb-ssa-tosi01          ansible_host=10.128.163.161
+bbb-ssa-tosi02          ansible_host=10.128.163.162
+bbb-ssaswps02           ansible_host=10.128.163.167
