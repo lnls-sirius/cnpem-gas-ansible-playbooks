@@ -5,6 +5,7 @@ Use the command `ansible-playbook` according to the following example:
 ```command
 ansible-playbook --inventory inventories/docker playbooks/<playbook_name>.yml
 ```
+
 in order to check connections
 
 ````command
@@ -22,6 +23,17 @@ ansible cluster \
     -k \
     -K \
     -u <remote-user>
+```
+Using adhoc command, view output in the terminal, argument `--one-line` or `-o` will display the result in the terminal.
+```command
+ansible all \
+    --module-name <command_name> \
+    --inventory <inventory> \
+    --ask-pass \
+    --ask-become-pass \
+    --user <user> \
+    --args <command_args> \
+    --one-line
 ```
 
 We are using submodules Yay!!
@@ -77,3 +89,4 @@ ansible-playbook -v -i Vagrant/hosts -u vagrant <playbook>
 ansible-playbook --limit 'vagrant'  -vvv -i inventories/servers -u vagrant playbooks/debian-server-setup.yml
 ```
 one can use the `--limit` parameter to include/exclude host groups eg: `!vagrant` excludes vagrant hosts. `:` is the host group separator for the limit argument.
+````
