@@ -1,0 +1,23 @@
+---
+  tasks:
+
+    # -----------------------------------------
+    # Fix ssh trouble makers
+    - name: Remove ssh banner
+      replace:
+        path: /etc/ssh/sshd_config
+        regexp: '^Banner .*$'
+        replace: '#Banner none'
+      register: banner_removed
+
+    - name: Restart sshd applying sshd_config changes
+      service:
+        state: restarted
+        name: sshd
+      when: banner_removed.changed
+
+    # -----------------------------------------
+    # NTP
+    - include_role:
+      name: ansible-role-ntp
+
