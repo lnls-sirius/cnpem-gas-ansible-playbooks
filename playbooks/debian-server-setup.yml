@@ -32,7 +32,7 @@
     - name: Start and Enable Network Manager
       service:
         name: NetworkManager.service
-        status: started
+        state: started
         enabled: yes
 
     # -----------------------------------------
