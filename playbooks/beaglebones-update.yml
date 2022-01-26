@@ -23,13 +23,23 @@
         name: sshd
       when: banner_removed.changed
 
+    - name: Get the list of services
+      service_facts:
+
+    - name: Stop unwanted services
+      service:
+        state: stopped
+        enabled: no
+        name: "{{ item }}"
+      with_items: "{{ services_disabled }}"
+      when: item in ansible_facts.services
+
     # -----------------------------------------
     # Basic packages
     - name: Basic packages
       apt:
         pkg: "{{ apt_packages }}"
       when: ansible_os_family == 'Debian'
-
 
     # -----------------------------------------
     # NTP

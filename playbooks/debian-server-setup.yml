@@ -21,6 +21,21 @@
         name: "{{ pip_packages }}"
 
     # -----------------------------------------
+    # networking
+    - name: Install Network Manager
+      apt:
+        pkg:
+          - network-manager
+          - libteam-utils # required for link aggregation
+      when: ansible_os_family == 'Debian'
+
+    - name: Start and Enable Network Manager
+      service:
+        name: NetworkManager.service
+        status: started
+        enabled: yes
+
+    # -----------------------------------------
     # NTP
     - include_role:
         name: ansible-role-ntp

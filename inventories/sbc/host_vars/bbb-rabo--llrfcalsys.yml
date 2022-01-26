@@ -1,9 +1,4 @@
-services_disabled:
-  - bbb-daemon.service
-  - bbb-function.service
-  - bbbread.service
-  - redis-server.service
-
+epics_base_version:
 epics_base: /opt/epics-R3.15.5/base
 epics_modules: /opt/epics-R3.15.5/epics/modules
 epics_module_asyn: asyn4-35
