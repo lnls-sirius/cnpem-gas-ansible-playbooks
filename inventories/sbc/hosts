@@ -13,3 +13,5 @@ bbb-ssa-tobo            ansible_host=10.128.162.160
 bbb-ssa-tosi01          ansible_host=10.128.163.161
 bbb-ssa-tosi02          ansible_host=10.128.163.162
 bbb-ssaswps02           ansible_host=10.128.163.167
+ra-rasi--bbb-acpwrmon1  ansible_host=10.128.163.170
+ra-rasi--bbb-acpwrmon2  ansible_host=10.128.163.171
