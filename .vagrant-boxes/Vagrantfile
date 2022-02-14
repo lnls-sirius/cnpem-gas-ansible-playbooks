@@ -1,0 +1,12 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "debian/bullseye64"
+    config.vm.hostname = "debian-bullseye"
+    config.vm.network :private_network, ip: "192.168.33.10"
+    config.vm.provider :libvirt do |vb|
+       vb.memory = 4096 # 4G
+       vb.cpus = 5
+    end
+end

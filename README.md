@@ -67,6 +67,7 @@ Install roles cloning the corresponding role into `roles/` subdirectory.
 
 ## Testing
 One can test using Vagrant or molecule. For a more interactive approach vagrant is a better choice.
+Vagrant settings exists inside the hidden directory `.vagrant-boxes`.
 
 ```command
 # general example

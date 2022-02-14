@@ -22,6 +22,7 @@ apt_packages:
 
   # utilities
   - tree
+  - nmap
 
 # General usage Python packages
 pip_packages:

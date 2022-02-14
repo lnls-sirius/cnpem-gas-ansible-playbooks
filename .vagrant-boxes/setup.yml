@@ -87,6 +87,8 @@
     - name: Checks if resolver is working properly with new nameserver
       command: host -t A ansible.cc
 
+    - include_tasks: setup-kitty.yml
+
     - name: Final greeting
       pause:
         seconds: 1
