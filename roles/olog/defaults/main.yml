@@ -1,0 +1,33 @@
+---
+olog_dockerfile_version: '3.6'
+olog_docker_image: dockerregistry.lnls-sirius.com.br/gco/olog-server:bc375e1-2021-03-16
+olog_docker_mysql_image: dockerregistry.lnls-sirius.com.br/gco/olog-mysql-db:latest
+
+olog_docker_volume_mysql: /storage/services/olog2/db
+olog_docker_volume_glassfish: /storage/services/olog2/data
+
+olog_docker_environment:
+  ADMIN_PASSWORD: "{{ vault_olog_glassfish_admin_password }}"
+  CERTIFICATE_PASSWORD: "{{ vault_olog_glassfish_certificate_password }}"
+  DB_USER: lnls_olog_user
+  DB_PASSWORD: "{{ vault_olog_db_password }}"
+  DB_NAME: olog
+  REALM_SEARCH_BIND_DN: "cn=admin,dc=lnls,dc=br"
+  REALM_SEARCH_BIND_PASS: "{{ vault_olog_bind_password }}"
+  REALM_SEARCH_FILTER: "cn=%s"
+  REALM_BASE_DN: "ou=users,dc=lnls,dc=br"
+  REALM_GROUP_DN: "ou=olog,ou=groups,dc=lnls,dc=br"
+  REALM_GROUP_FILTER: "(&(objectClass=groupOfNames)(member=%d))"
+  REALM_URL: "ldap://10.0.38.42:389"
+
+olog_docker_mysql_environment:
+  MYSQL_USER: lnls_olog_user
+  MYSQL_ROOT_PASSWORD: "{{ vault_olog_db_root_password }}"
+  MYSQL_PASSWORD: "{{ vault_olog_db_password }}"
+  MYSQL_DATABASE: olog
+  PGDATA: /var/lib/postgresql/data/olog-db
+
+olog_docker_ports:
+  - "4848:4848"
+  - "8181:8181"
+  - "1527:1527"

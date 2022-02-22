@@ -1,0 +1,13 @@
+---
+roles:
+  - src: https://github.com/evandam/evandam.conda.git
+    scm: git
+    version: v1.2.0
+    name: conda
+
+  - name: geerlingguy.docker
+    version: 4.1.3
+
+collections:
+  - name: community.docker
+    version: 2.2.0

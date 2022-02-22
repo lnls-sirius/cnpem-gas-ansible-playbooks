@@ -1,0 +1,16 @@
+---
+- gather_facts: true
+  become: true
+  hosts: localhost
+  connection: local
+
+  pre_tasks:
+    - name: Include vault variables
+      include_vars: "{{ item }}"
+      with_first_found:
+        - files:
+          - "../{{ inventory }}/group_vars/vault.yml"
+
+  tasks:
+    - include_role:
+        name: olog

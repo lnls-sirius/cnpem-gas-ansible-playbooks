@@ -1,0 +1,54 @@
+---
+- name: Create mysql bind mount point
+  file:
+    state: directory
+    group: 999
+    owner: 999
+    path: "{{ olog_docker_volume_mysql }}"
+    mode: "0755"
+
+- name: Create glassfish bind mount point
+  file:
+    state: directory
+    group: 0
+    owner: 0
+    path: "{{ olog_docker_volume_glassfish }}"
+    mode: "0755"
+
+- name: Pull required images
+  community.docker.docker_image:
+    source: pull
+    name: "{{ item }}"
+  with_items:
+    - "{{ olog_docker_image }}"
+    - "{{ olog_docker_mysql_image }}"
+
+- name: Deploy Olog using Docker
+  community.docker.docker_compose:
+    project_name: Olog
+    build: false
+    definition:
+      version: "{{ olog_dockerfile_version | default('3.6') }}"
+      networks:
+        olog-network: {}
+      services:
+        olog-glassfish:
+          image: "{{ olog_docker_image }}"
+          hostname: olog-server
+          environment: "{{ olog_docker_environment }}"
+          ports: "{{ olog_docker_ports }}"
+          networks:
+            - olog-network
+          depends_on:
+            - olog-mysql-db
+          volumes:
+            - "{{ olog_docker_volume_glassfish }}:/glassfish4/glassfish/domains/domain1/config/jackrabbit"
+
+        olog-mysql-db:
+          image: "{{ olog_docker_mysql_image }}"
+          hostname: olog-mysql-db
+          environment: "{{ olog_docker_mysql_environment }}"
+          networks:
+            - olog-network
+          volumes:
+            - "{{ olog_docker_volume_mysql }}:/var/lib/mysql"
